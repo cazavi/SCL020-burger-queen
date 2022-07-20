@@ -13,4 +13,13 @@
 <img src = "IMGS/BLANCO.jpeg">
 
 ## PROTOTIPO
+Ver flujo [aquí](https://www.figma.com/file/zf6Iatfd72OyGpvaUfgDlk/NONNA-QUEEN?node-id=29%3A108)
 <img src = "IMGS/PROTOTIPO.png">
+
+## PROCEDIMIENTO
+* Crear diagrama de flujo.
+* Elegir tema y paleta de colores.
+* Comenzar prototipo de alta.
+* Instalar tailwind css.
+* Terminar prototipo.
+* Instalar empaquetador vite.
