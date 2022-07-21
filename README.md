@@ -20,6 +20,7 @@ Ver flujo [aquí](https://www.figma.com/file/zf6Iatfd72OyGpvaUfgDlk/NONNA-QUEEN?
 * Crear diagrama de flujo.
 * Elegir tema y paleta de colores.
 * Comenzar prototipo de alta.
-* Instalar tailwind css.
+* Instalar Tailwind css.
 * Terminar prototipo.
-* Instalar empaquetador vite.
+* Instalar empaquetador Vite.
+* Instalar dependencias de React Router Dom.
