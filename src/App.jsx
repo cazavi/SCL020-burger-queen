@@ -1,6 +1,11 @@
 import { Routes, Route, Link} from "react-router-dom";
 import Login from "./routes/Login";
-import Home from "./routes/Home";
+import Options from "./routes/Options";
+import Kitchen from "./routes/Kitchen";
+import Order from "./routes/Order";
+import Preparing from "./routes/Preparing";
+import Tables from "./routes/Tables";
+import Waiter from "./routes/Waiter";
 import Navbar from "./components/Navbar"
 
 const App = () => {
@@ -9,8 +14,13 @@ const App = () => {
     <Navbar />
       <h1>APP</h1>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/options" element={<Options />} />
+        <Route path="/kitchen" element={<Kitchen />} />
+        <Route path="/order" element={<Order />} />
+        <Route path="/preparing" element={<Preparing />} />
+        <Route path="/tables" element={<Tables />} />
+        <Route path="/waiter" element={<Waiter />} />
       </Routes>
     </>
   );
