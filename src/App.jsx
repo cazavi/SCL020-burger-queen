@@ -6,13 +6,10 @@ import Order from "./routes/Order";
 import Preparing from "./routes/Preparing";
 import Tables from "./routes/Tables";
 import Waiter from "./routes/Waiter";
-import Navbar from "./components/Navbar"
 
 const App = () => {
   return (
     <>
-    <Navbar />
-      <h1>APP</h1>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/options" element={<Options />} />
