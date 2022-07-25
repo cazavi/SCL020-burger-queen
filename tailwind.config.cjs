@@ -5,6 +5,10 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'Comfortaa': ['Comfortaa', 'cursive'],
+      'AmaticSC': ['"Amatic SC"', 'cursive']
+    },
     extend: {},
     colors: {
       'green':'#B9C48B',

@@ -1,8 +1,9 @@
 const Preparing = () => {
     return (
-        <>
-            <h1>Preparing</h1>
-        </>
+        <div>
+            <Navbar />
+            <h1>Preparando</h1>
+        </div>
     )
 }
 

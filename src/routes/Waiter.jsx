@@ -1,8 +1,9 @@
 const Waiter = () => {
     return (
-        <>
-            <h1>Waiter</h1>
-        </>
+        <div>
+            <Navbar />
+            <h1>Mesero</h1>
+        </div>
     )
 }
 

@@ -1,8 +1,9 @@
 const Order = () => {
     return (
-        <>
-            <h1>Order</h1>
-        </>
+        <div>
+            <Navbar />
+            <h1>Pedido</h1>
+        </div>
     )
 }
 

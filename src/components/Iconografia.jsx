@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import {NavLink} from "react-router-dom";
-import {CgMenuRound, CgCloseO} from "react-icons/cg"
 
 const Navbar = () => {
   const [nav, setNav] = useState(false)

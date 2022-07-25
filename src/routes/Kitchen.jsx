@@ -1,9 +1,25 @@
 const Kitchen = () => {
-    return (
-        <>
-            <h1>Kitchen</h1>
-        </>
-    )
+  return (
+    <div>
+      <Navbar />
+      <h1>Cocina</h1>
+      <div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+    </div>
+  )
 }
 
 export default Kitchen
