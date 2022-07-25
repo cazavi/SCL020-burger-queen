@@ -12,22 +12,21 @@ const Login = () => {
 			else alert('login incorrecto');
 	}
 	return(
-			<div className="flex items-center flex-col">
+			<div className="bg-[url('./IMGS/BACKGROUND.jpg')] bg-cover w-full h-[820px] flex items-center flex-col font-Comfortaa">
 					<picture className="my-16">
 							<img alt='Logo' src='./IMGS/nonnaQueen.png'/>
 					</picture>
-					<div className='bg-green max-w-xs shadow-md rounded-xl px-10 pt-10 pb-10 text-center'>
+					<div className='bg-green backdrop-blur-xl bg-opacity-70 max-w-md drop-shadow-lg rounded-xl px-10 pt-10 pb-10 text-center inline-block'>
 							<form 
 									onSubmit={ev =>{
 											ev.preventDefault();
-
 											login(user, password);
 									
 									}}
 							>
 									<label>Usuario</label>
 									<input 
-											className='bg-green-light rounded'
+											className='bg-green-light rounded text-center block border-green-dark'
 											type='text'
 											name='user'
 											placeholder='usuario'
@@ -36,14 +35,14 @@ const Login = () => {
 									></input>
 									<label>Contraseña</label>
 									<input 
-											className='bg-green-light rounded'
+											className='bg-green-light rounded text-center block border-green-dark'
 											type='password'
 											name='password'
 											placeholder='contraseña'
 											value={password}
 											onChange={ev => setPassword(ev.target.value)}
 											></input>
-									<button type='submit'>Acceder</button>
+									<button className='bg-[#529A6B]  ml-auto mr-auto rounded-full block shadow-md mt-4 w-40 h-10 text-[#ffffff] text-bold border-green-dark border-2' type='submit'>Acceder</button>
 							</form>
 					</div>
 			</div>
