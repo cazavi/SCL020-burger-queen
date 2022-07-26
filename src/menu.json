@@ -1,0 +1,68 @@
+{
+    "pastas":[
+        {
+            "name":"Spaghetti Pesto",
+            "cost": 9990
+        },{
+            "name":"Spaghetti Bolognesa",
+            "cost": 11400
+        },{
+            "name":"Spaghetti Alfredo",
+            "cost": 10100
+        },{
+            "name":"Gnocchi Alfredo ",
+            "cost": 11400
+        },{
+            "name":"Gnocchi Pomodoro",
+            "cost": 9990
+        },{
+            "name":"Gnocchi Funghi",
+            "cost": 12400
+        },{
+            "name":"Lasagna Bolognesa 1P",
+            "cost": 8990
+        }
+    ],
+    "pizzas":[
+        {
+            "name":"Pizza Carbonara (35cms)",
+            "cost": 13990
+        },{
+            "name":"Pizza Champiñones Silvestres (35cms)",
+            "cost": 11990
+        },{
+            "name":"Pizza Fugazza (35cms)",
+            "cost": 10990
+        },{
+            "name":"Pizza Gamberetti (35cms)",
+            "cost": 15990
+        },{
+            "name":"Pizza Hawaiana (35cms)",
+            "cost": 11990
+        },{
+            "name":"Pizza Margarita (35cms)",
+            "cost": 10990
+        }
+    ],
+    "liquidos":[
+        {
+            "name":"Pepsi Original 350ml",
+            "cost": 1200
+        },{
+            "name":"Pepsi Zero 350ml",
+            "cost": 1200
+        },{
+            "name":"Pepsi Original 1.5lts",
+            "cost": 1800
+        },{
+            "name":"Café",
+            "cost": 1200
+        },{
+            "name":"Té",
+            "cost": 1200
+        },{
+            "name":"Jugo natural",
+            "cost": 1500
+        }
+    ]
+}
