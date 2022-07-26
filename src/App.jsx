@@ -6,6 +6,7 @@ import Order from "./routes/Order";
 import Preparing from "./routes/Preparing";
 import Tables from "./routes/Tables";
 import Waiter from "./routes/Waiter";
+import Iconography from "./routes/Iconography";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/preparing" element={<ProtectedRoutes> <Preparing /> </ProtectedRoutes> } />
         <Route path="/tables" element={<ProtectedRoutes> <Tables /> </ProtectedRoutes> } />
         <Route path="/waiter" element={<ProtectedRoutes> <Waiter /> </ProtectedRoutes> } />
+        <Route path="/iconography" element={<ProtectedRoutes> <Iconography /> </ProtectedRoutes> } />
       </Routes>
     </>
   );

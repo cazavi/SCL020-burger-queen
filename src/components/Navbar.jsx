@@ -42,16 +42,16 @@ const Navbar = () => {
           <span className="block text-sm font-bold text-gray-500 truncate ">admin@nonnaqueen.com</span>
         </div>
           <li>
-            <NavLink to="/kitchen" className='block rounded m-2.5 p-5 shadow-xl border-b bg-[#F0CE46] border-r-green-dark'>Cocina</NavLink>
+            <NavLink to="/kitchen" className='block rounded m-2.5 p-5 shadow-xl border-b bg-[#F0CE46] border-r-green-dark active:bg-[#9E2D29]'>Cocina</NavLink>
           </li>
           <li>
-            <NavLink to="/tables" className='block rounded m-2.5 p-5 shadow-xl border-b bg-[#F0CE46] border-r-green-dark'>Mesas</NavLink>
+            <NavLink to="/tables" className='block rounded m-2.5 p-5 shadow-xl border-b bg-[#F0CE46] border-r-green-dark active:bg-[#9E2D29]'>Mesas</NavLink>
           </li>
           <li>
-            <NavLink to="/info"className='block rounded m-2.5 p-5 shadow-xl border-b bg-[#F0CE46] border-r-green-dark'>Iconografía</NavLink>
+            <NavLink to="/iconography"className='block rounded m-2.5 p-5 shadow-xl border-b bg-[#F0CE46] border-r-green-dark active:bg-[#9E2D29]'>Iconografía</NavLink>
           </li>
           <li>
-          <button className='block rounded mt-80 m-2.5 p-5 shadow-2xl border-b bg-[#D13C36] border-r-green-dark' type="submit"
+          <button className='block rounded center w-80 mt-80 m-auto p-5 shadow-2xl border-b bg-[#D13C36] border-r-green-dark active:bg-[#9E2D29]' type="submit"
       onClick={handleLogout}>Cerrar Sesión</button>
           </li>
         </ul>
