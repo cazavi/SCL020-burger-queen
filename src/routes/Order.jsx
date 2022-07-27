@@ -1,6 +1,28 @@
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
+import Menu from "../components/Menu";
 
 const Order = () => {
+
+        const [menu, setMenu] = useState([])
+        const [fMenu, setFMenu] = useState([])
+      
+        useEffect(() =>{
+          fetch("src/menu.json")
+          .then(response => response.json())
+          .then(data => {
+            setMenu(data)
+            filterMenu('pasta')
+          })
+        }, [])
+    
+        const filterMenu = (type)=>{
+            const result= menu.filter(item => item.type === type);
+            setFMenu(result)
+        }
+        
+        
+    
     return (
         <div className="w-full h-screen">
             <Navbar />
@@ -10,12 +32,12 @@ const Order = () => {
                         <h1>posible boton mesa</h1>
                     </div>
                     <div className="flex my-4">
-                        <button className="bg-[#B1B5A5] text-[#9E2D29] w-28 h-14 rounded-3xl mx-4 shadow-full">Enviar</button>
-                        <button className="bg-[#B1B5A5] text-[#9E2D29] w-28 h-14 rounded-3xl mx-4 shadow-full">Cancelar</button>
-                        <button className="bg-[#B1B5A5] text-[#9E2D29] w-28 h-14 rounded-3xl mx-4 shadow-full">Cancelar</button>
+                        <button className="bg-[#B1B5A5] text-[#9E2D29] w-28 h-14 rounded-3xl mx-4 shadow-full" onClick={() =>filterMenu('pasta')} >Pastas</button>
+                        <button className="bg-[#B1B5A5] text-[#9E2D29] w-28 h-14 rounded-3xl mx-4 shadow-full" onClick={() =>filterMenu('pizza')}>Pizzas</button>
+                        <button className="bg-[#B1B5A5] text-[#9E2D29] w-28 h-14 rounded-3xl mx-4 shadow-full" onClick={() =>filterMenu('bebidas')}>Bebestibles</button>
                     </div>
-                    <div className="bg-[#F9D67E] flex w-11/12 h-4/6">
-                        <h1>menu</h1>
+                    <div className="flex justify-center w-11/12 h-4/6">
+                        <Menu menu={fMenu} />
                     </div>
                     <div className="bg-[#B6CE55] flex my-4 h-16 w-5/6 items-end rounded-md">
                         <h1>cliente</h1>

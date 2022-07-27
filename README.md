@@ -24,3 +24,9 @@ Ver flujo [aquí](https://www.figma.com/file/zf6Iatfd72OyGpvaUfgDlk/NONNA-QUEEN?
 * Terminar prototipo.
 * Instalar empaquetador Vite.
 * Instalar dependencias de React Router Dom.
+* Crear navbar.
+* Crear templates.
+* Añadir botones.
+* Añadir menu.json
+* Crear componente de menu.
+* Generar interacción del menu con template order.
