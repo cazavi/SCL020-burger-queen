@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "../components/Navbar";
 import Menu from "../components/Menu";
+import Provider, { AppContext } from "../components/Provider";
 
 const Order = () => {
 
@@ -14,13 +15,24 @@ const Order = () => {
             setMenu(data)
             filterMenu('pasta')
           })
+          .catch(error =>
+              console.log('error? '+ error)) 
         }, [])
+
     
         const filterMenu = (type)=>{
+            console.log(menu)
             const result= menu.filter(item => item.type === type);
             setFMenu(result)
+            
         }
         
+        const ShowState = () => {
+            const [state, setState] = useContext(AppContext);
+            return (<div>
+                <p>{state.name}</p>
+            </div>);
+        }
         
     
     return (
@@ -46,7 +58,9 @@ const Order = () => {
 
                 <div className="flex flex-col items-center">
                     <div className="bg-green w-96 h-5/6 flex rounded-md shadow-3xl">
-                        <h1>pedido</h1>
+                        <Provider> 
+                        <p>pedido</p>
+                        </Provider>
                     </div>
                     <div className="flex my-4 h-16 items-end"> 
                         <button className="bg-[#D9BA3F] text-green-dark w-28 h-14 rounded-3xl mx-4 shadow-full">Enviar</button>
