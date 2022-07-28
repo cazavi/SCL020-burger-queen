@@ -1,8 +1,16 @@
-import React from "react";
-
+import React, {useRef, useContext} from "react";
+import {AppContext} from './Provider'
 
 function Menu({menu}){
+  const ticket = () => {
+    let product = useRef(null);
+    const [state, setState] = useContext(AppContext);
 
+    return (<input type='text' ref={product} 
+    onChange={()=>{setState({name:product.current.value})}} />
+    );
+  }
+  
   return (
     <div className="font-Comfortaa grid grid-cols-2 gap-8 my-8">
       {menu.map(item => (
