@@ -2,26 +2,27 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Menu from "../components/Menu";
 import {AppContext} from "../components/Provider";
+import {RiDeleteBin2Fill} from "react-icons/ri"
 
 
 const Order = () => {
 
-  const menu = useContext(AppContext);
-	console.log(menu)
-
+  const context = useContext(AppContext);
+	// console.log(menu)
+  const cartProduct = context.cart;
+  const deleteButton = context.deleteItem;
   const [fMenu, setFMenu] = useState([]);
 
 	useEffect(() => {
     filterMenu('pasta')
-  },[menu])
+  },[context.menu])
 
 		const filterMenu = (type) => {
-			const result = menu.filter(item => item.type === type);
+			const result = context.menu.filter(item => item.type === type);
 			setFMenu(result);
     };
     console.log(fMenu)	
   
-  let product = useRef(null)
 
   return (
     <div className="w-full h-screen">
@@ -60,12 +61,13 @@ const Order = () => {
         </div>
 
         <div className="flex flex-col items-center">
-          <div className="bg-green w-96 h-5/6 flex rounded-md shadow-3xl">
-            {fMenu.map(item => (
-              <div key={item.id} className="flex w-56" ref={product} onChange={() => {setProduct(item.id)}}>
-                <p>{item.name}</p>
-                <p>{item.cost}</p>
-                <p>{item.count}</p>
+          <div className="bg-green w-96 h-5/6 flex rounded-md shadow-3xl flex-col ">
+            {cartProduct.map((item, index) => (
+              <div key={index} className="flex w-56 mt-1.5 ">
+                <button> <RiDeleteBin2Fill className="ml-2"  color="#E6553C"size={40} onClick={() => deleteButton(item)}/></button>
+                <p className="w-14 ml-4 flex ">{item.name}</p>
+                <p className="w-10 ml-20 flex ">{item.count}</p>
+                <p className="w-10 ml-20 flex font-extrabold">{item.totalCost}</p>
               </div>
             ))}
           </div>
