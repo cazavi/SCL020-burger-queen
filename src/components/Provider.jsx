@@ -1,16 +1,29 @@
-import React, {createContext, useState} from "react";
+import React, { createContext, useState, useEffect } from "react";
+
+export const AppContext = createContext();
 
 const Provider = (props) => {
-    const [state, setState] = useState({});
+	
+  const [menu, setMenu] = useState([]);
 
-    return (
-        <div>
-            <AppContext.Provider value={[state,setState]}>
-                {props.children}
-            </AppContext.Provider>
-        </div>
-    );
-}
+  useEffect(() => {
+    fetch('src/menu.json')
+      .then((response) => response.json())
+      .then((data) => {
+        setMenu(data);
+        console.log(data)
+      })
+
+		}, []);
+
+    console.log(menu)
+  return (
+    <>
+      <AppContext.Provider value={menu}>
+        {props.children}
+      </AppContext.Provider>
+    </>
+  );
+};
 
 export default Provider;
-export const AppContext = createContext();

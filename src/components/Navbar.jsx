@@ -33,9 +33,9 @@ const Navbar = () => {
   <div  className="bg-green-dark inline-block w-full h-28  m-0 p-0 fixed font-Comfortaa text-center">
     <div onClick={handleNav} className=" flex justify-between pr-2 pt-3.5 h-28 w-full"> 
     <img src='./public/nonna-queen.svg' className="flex pl-2 pt-0 h-28 w-28"></img>
-      {!nav ? <CgCloseO className="fixed right-96"color="#D13C36"size={70} /> : <CgMenuRound color="#D13C36" size={70} />}
+      {nav ? <CgCloseO className="fixed right-96"color="#D13C36"size={70} /> : <CgMenuRound color="#D13C36" size={70} />}
     </div>
-			<div className={!nav ? 'px-4 mx-auto p-5 fixed right-0 top-0 w-[30%] h-full border-r border-r-green-dark bg-[#B6CE55] ease-in-out duration-300' : 'fixed right-[-100%]'}>
+			<div className={nav ? 'px-4 mx-auto p-5 fixed right-0 top-0 w-[30%] h-full border-r border-r-green-dark bg-[#B6CE55] ease-in-out duration-300' : 'fixed right-[-100%]'}>
         <ul className="pt-20 uppercase">
         <div className="py-3 px-4">
           <span className="block text-sm font-bold">Admin</span>
