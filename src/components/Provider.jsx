@@ -47,15 +47,17 @@ const Provider = (props) => {
     if (searchProduct.count === 1) {
       setCart(cart.filter((item) => item.id !== product.id));
     } else {
-      setCart(() => {
+      setCart(
+        cart.map ((item) => {
         // console.log(searchProduct.id)
         // console.log(product.id)
-        if (product.id === searchProduct.id) {
-            return[{...searchProduct, count: searchProduct.count -1 }];
+        if (item.id === product.id) {
+          console.log(item)
+          return {...searchProduct, count: searchProduct.count -1 };
         } else 
         // console.log('aqui', searchProduct)
-        return searchProduct;
-      });
+        return item;
+      }));
     }
   };
 
