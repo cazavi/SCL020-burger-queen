@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .empty-table{
+    @apply bg-[#E0E2D4] w-56 h-36 rounded-3xl shadow-full active:bg-[#9E2D29];
+    }
+
+    .order-ready{
+    @apply bg-[#8FEB95] w-64 h-36 rounded-3xl ;
+    boxShadow: theme('boxShadow.3xl');
+    }
+
+    .order-made{
+    @apply bg-[#D9BA3F] w-64 h-36 rounded-3xl;
+    boxShadow: theme('boxShadow.3xl');
+    }
+}

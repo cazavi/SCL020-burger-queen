@@ -14,8 +14,6 @@ const Provider = (props) => {
       });
   }, []);
 
-  console.log(menu);
-
   const [cart, setCart] = useState([]);
 
   const comanda = (product) => {
@@ -44,15 +42,19 @@ const Provider = (props) => {
   };
 
   const deleteItem = (product) => {
-    const searchProduct = cart.findIndex((product) => product.id === item.id);
+    const searchProduct = cart.find((item) => item.id === product.id);
 
     if (searchProduct.count === 1) {
-      setCart(cart.filter((product) => product.id !== item.id));
+      setCart(cart.filter((item) => item.id !== product.id));
     } else {
-      setCart((product) => {
-        if (product.id === item.id) {
-          return { ...searchProduct, count: searchProduct.count - 1 };
-        } else return product;
+      setCart(() => {
+        // console.log(searchProduct.id)
+        // console.log(product.id)
+        if (product.id === searchProduct.id) {
+            return[{...searchProduct, count: searchProduct.count -1 }];
+        } else 
+        // console.log('aqui', searchProduct)
+        return searchProduct;
       });
     }
   };

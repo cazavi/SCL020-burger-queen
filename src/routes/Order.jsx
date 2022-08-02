@@ -21,8 +21,6 @@ const Order = () => {
 			const result = context.menu.filter(item => item.type === type);
 			setFMenu(result);
     };
-    console.log(fMenu)	
-  
 
   return (
     <div className="w-full h-screen">
