@@ -11,6 +11,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('role')
+    localStorage.removeItem("email");
     navigate('/');
   };
   useEffect(() => {
@@ -28,7 +30,9 @@ const Navbar = () => {
       })
 
   }, [])
-  // pt-[0px] h-full w-full  pl-[1100px] 
+  
+  const user = window.localStorage.email;
+
   return (
   <div  className="bg-green-dark inline-block w-full h-28  m-0 p-0 fixed font-Comfortaa text-center">
     <div onClick={handleNav} className=" flex justify-between pr-2 pt-3.5 h-28 w-full"> 
@@ -39,7 +43,7 @@ const Navbar = () => {
         <ul className="pt-20 uppercase">
         <div className="py-3 px-4">
           <span className="block text-sm font-bold">Admin</span>
-          <span className="block text-sm font-bold text-gray-500 truncate ">admin@nonnaqueen.com</span>
+          <span className="block text-sm font-bold text-gray-500 truncate ">{window.localStorage.email}</span>
         </div>
           <li>
             <NavLink to="/kitchen" className='block rounded m-2.5 p-5 shadow-xl border-b bg-[#F0CE46] border-r-green-dark active:bg-[#9E2D29]'>Cocina</NavLink>
