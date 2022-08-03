@@ -21,6 +21,8 @@ const Login = () => {
 		.then((response) => {
 			console.log(response.data);
 			localStorage.setItem("token", response.data.token);
+			localStorage.setItem("role", response.data.data.role.description);
+			localStorage.setItem("email", response.data.data.email);
 			response = navigate("/options"); 
 		})
 

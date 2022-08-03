@@ -67,32 +67,32 @@
         {
             "id":13,
             "product":"Pepsi Original 350ml",
-            "cost": 1200,
+            "price": 1200,
             "type": "bebidas"
         },{
             "id":14,
             "product":"Pepsi Zero 350ml",
-            "cost": 1200,
+            "price": 1200,
             "type": "bebidas"
         },{
             "id":15,
             "product":"Pepsi Original 1.5lts",
-            "cost": 1800,
+            "price": 1800,
             "type": "bebidas"
         },{
             "id":16,
             "product":"Café",
-            "cost": 1200,
+            "price": 1200,
             "type": "bebidas"
         },{
             "id":17,
             "product":"Té",
-            "cost": 1200,
+            "price": 1200,
             "type": "bebidas"
         },{
             "id":18,
             "product":"Jugo natural",
-            "cost": "$1.500",
+            "price": "$1.500",
             "type": "bebidas"
         }
     
