@@ -16,44 +16,44 @@ const Provider = (props) => {
 
   const [cart, setCart] = useState([]);
 
-  const comanda = (product) => {
-    const searchProduct = cart.findIndex((item) => item.id === product.id);
+  const comanda = (selectedProduct) => {
+    const searchProduct = cart.findIndex((item) => item.id === selectedProduct.id);
     // console.log(searchProduct)
     if (searchProduct == -1) {
       const productList = [
         ...cart,
         {
-          id: product.id,
-          name: product.name,
-          cost: product.cost,
-          count: 1,
-          totalCost: product.cost,
+          id: selectedProduct.id,
+          product: selectedProduct.product,
+          price: selectedProduct.price,
+          qty: 1,
+          totalPrice: selectedProduct.cost,
         },
       ];
       // console.log(productList)
       setCart(productList);
     } else {
       const newCart = [...cart];
-      newCart[searchProduct].count += 1;
-      newCart[searchProduct].totalCost =
-        newCart[searchProduct].count * newCart[searchProduct].cost;
+      newCart[searchProduct].qty += 1;
+      newCart[searchProduct].totalPrice =
+        newCart[searchProduct].qty * newCart[searchProduct].price;
       setCart(newCart);
     }
   };
 
-  const deleteItem = (product) => {
-    const searchProduct = cart.find((item) => item.id === product.id);
+  const deleteItem = (selectedProduct) => {
+    const searchProduct = cart.find((item) => item.id === selectedProduct.id);
 
-    if (searchProduct.count === 1) {
-      setCart(cart.filter((item) => item.id !== product.id));
+    if (searchProduct.qty === 1) {
+      setCart(cart.filter((item) => item.id !== selectedProduct.id));
     } else {
       setCart(
         cart.map ((item) => {
         // console.log(searchProduct.id)
         // console.log(product.id)
-        if (item.id === product.id) {
+        if (item.id === selectedProduct.id) {
           console.log(item)
-          return {...searchProduct, count: searchProduct.count -1 };
+          return {...searchProduct, qty: searchProduct.qty -1, totalPrice: searchProduct.totalPrice - searchProduct.price};
         } else 
         // console.log('aqui', searchProduct)
         return item;

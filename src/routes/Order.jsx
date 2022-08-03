@@ -63,9 +63,9 @@ const Order = () => {
             {cartProduct.map((item, index) => (
               <div key={index} className="flex w-56 mt-1.5 ">
                 <button> <RiDeleteBin2Fill className="ml-2"  color="#E6553C"size={40} onClick={() => deleteButton(item)}/></button>
-                <p className="w-14 ml-4 flex ">{item.name}</p>
-                <p className="w-10 ml-20 flex ">{item.count}</p>
-                <p className="w-10 ml-20 flex font-extrabold">{item.totalCost}</p>
+                <p className="w-14 ml-4 flex ">{item.product}</p>
+                <p className="w-10 ml-20 flex ">{item.qty}</p>
+                <p className="w-10 ml-20 flex font-extrabold">{item.totalPrice}</p>
               </div>
             ))}
           </div>
