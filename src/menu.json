@@ -1,97 +1,97 @@
 [
         {
             "id":1,
-            "name":"Spaghetti Pesto",
-            "cost": 9990,
+            "product":"Spaghetti Pesto",
+            "price": 9990,
             "type": "pasta"
         },{
             "id":2,
-            "name":"Spaghetti Bolognesa",
-            "cost": 11400,
+            "product":"Spaghetti Bolognesa",
+            "price": 11400,
             "type": "pasta"
         },{
             "id":3,
-            "name":"Spaghetti Alfredo",
-            "cost": 10100,
+            "product":"Spaghetti Alfredo",
+            "price": 10100,
             "type": "pasta"
         },{
             "id":4,
-            "name":"Gnocchi Pomodoro",
-            "cost": 9990,
+            "product":"Gnocchi Pomodoro",
+            "price": 9990,
             "type": "pasta"
         },{
             "id":5,
-            "name":"Gnocchi Funghi",
-            "cost": 12400,
+            "product":"Gnocchi Funghi",
+            "price": 12400,
             "type": "pasta"
         },{
             "id":6,
-            "name":"Lasagna Bolognesa 1P",
-            "cost": 8990,
+            "product":"Lasagna Bolognesa 1P",
+            "price": 8990,
             "type": "pasta"
         },
 
         {
             "id":7,
-            "name":"Pizza Carbonara (35cms)",
-            "cost": 13990,
+            "product":"Pizza Carbonara (35cms)",
+            "price": 13990,
             "type": "pizza"
         },{
             "id":8,
-            "name":"Pizza Champiñones Silvestres (35cms)",
-            "cost": 11990,
+            "product":"Pizza Champiñones Silvestres (35cms)",
+            "price": 11990,
             "type": "pizza"
         },{
             "id":9,
-            "name":"Pizza Fugazza (35cms)",
-            "cost": 10990,
+            "product":"Pizza Fugazza (35cms)",
+            "price": 10990,
             "type": "pizza"
         },{
             "id":10,
-            "name":"Pizza Gamberetti (35cms)",
-            "cost": 15990,
+            "product":"Pizza Gamberetti (35cms)",
+            "price": 15990,
             "type": "pizza"
         },{
             "id":11,
-            "name":"Pizza Hawaiana (35cms)",
-            "cost": 11990,
+            "product":"Pizza Hawaiana (35cms)",
+            "price": 11990,
             "type": "pizza"
         },{
             "id":12,
-            "name":"Pizza Margarita (35cms)",
-            "cost": 10990,
+            "product":"Pizza Margarita (35cms)",
+            "price": 10990,
             "type": "pizza"
         }
     ,
 
         {
             "id":13,
-            "name":"Pepsi Original 350ml",
+            "product":"Pepsi Original 350ml",
             "cost": 1200,
             "type": "bebidas"
         },{
             "id":14,
-            "name":"Pepsi Zero 350ml",
+            "product":"Pepsi Zero 350ml",
             "cost": 1200,
             "type": "bebidas"
         },{
             "id":15,
-            "name":"Pepsi Original 1.5lts",
+            "product":"Pepsi Original 1.5lts",
             "cost": 1800,
             "type": "bebidas"
         },{
             "id":16,
-            "name":"Café",
+            "product":"Café",
             "cost": 1200,
             "type": "bebidas"
         },{
             "id":17,
-            "name":"Té",
+            "product":"Té",
             "cost": 1200,
             "type": "bebidas"
         },{
             "id":18,
-            "name":"Jugo natural",
+            "product":"Jugo natural",
             "cost": "$1.500",
             "type": "bebidas"
         }
