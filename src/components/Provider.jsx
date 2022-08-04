@@ -4,6 +4,7 @@ export const AppContext = createContext();
 
 const Provider = (props) => {
     const [menu, setMenu] = useState([]);
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         fetch("src/menu.json")
@@ -14,8 +15,6 @@ const Provider = (props) => {
             });
     }, []);
 
-    const [cart, setCart] = useState([]);
-
     const comanda = (selectedProduct) => {
         const searchProduct = cart.findIndex((item) => item.id === selectedProduct.id);
         // console.log(searchProduct)
@@ -24,13 +23,12 @@ const Provider = (props) => {
                 ...cart,
                 {
                     id: selectedProduct.id,
+                    qty: 1,
                     product: selectedProduct.product,
                     price: selectedProduct.price,
-                    qty: 1,
                     totalPrice: selectedProduct.price,
                 },
             ];
-            // console.log(productList)
             setCart(productList);
         } else {
             const newCart = [...cart];

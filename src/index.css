@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.button-type-on{
+    @apply bg-[#9E2D29] text-[#B1B5A5] w-28 h-14 rounded-3xl mx-4 shadow-full;
+}
+.button-type-off{
+    @apply bg-[#B1B5A5] text-[#9E2D29] w-28 h-14 rounded-3xl mx-4 shadow-full
+}
 @layer utilities {
     .empty-table{
     @apply bg-[#E0E2D4] w-56 h-36 rounded-3xl shadow-full active:bg-[#9E2D29];

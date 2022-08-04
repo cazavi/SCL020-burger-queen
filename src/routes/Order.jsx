@@ -2,21 +2,80 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Menu from "../components/Menu";
 import CartOrder from "../components/CartOrder";
+import ButtonKitchen from "../components/ButtonKitchen";
 import { AppContext } from "../components/Provider";
+import axios from "axios";
 
 
 const Order = () => {
     const context = useContext(AppContext);
+    const cartProduct = context.cart;
     const [fMenu, setFMenu] = useState([]);
+    const [pastas, setPastas] = useState(true)
+    const [pizzas, setPizzas] = useState(false)
+    const [bebidas, setBebidas] = useState(false)
+    const [client, setClient] = useState({})
+
+    const product = (cartProduct) => {
+        let products = [];
+        cartProduct.map(({ qty, product, price }) => {
+            const item = { qty, product: product, price: price }
+            products.push(item)
+        })
+        return products
+    }
+
+    const products = product(cartProduct)
+    const data = { client, products }
+    console.log(data)
 
     useEffect(() => {
-        filterMenu('pasta')
+        filterMenu("pasta")
     }, [context.menu])
+
+    const handlePizzas = () => {
+        setPizzas(true)
+        setPastas(false)
+        setBebidas(false)
+    }
+    const handlePastas = () => {
+        setPizzas(false)
+        setPastas(true)
+        setBebidas(false)
+    }
+    const handleBebidas = () => {
+        setPizzas(false)
+        setPastas(false)
+        setBebidas(true)
+    }
 
     const filterMenu = (type) => {
         const result = context.menu.filter(item => item.type === type);
         setFMenu(result);
+        if (type == 'pizza') {
+            handlePizzas()
+        } else if (type == 'pasta') {
+            handlePastas()
+        } else if (type == 'bebidas') {
+            handleBebidas()
+        }
     };
+
+    const handleSendOrder = () => {
+        let headers = {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+        console.log(headers)
+        const body = data
+        console.log(body)
+        axios
+        .post('https://apiburgerqueenv1.herokuapp.com/orders', body, { headers })
+        .then((response) => {
+            console.log(response);
+            console.log(response.data.response._id);
+        })
+        .catch((err) => console.log(err));;
+    }
 
     return (
         <div className="w-full h-screen">
@@ -26,40 +85,34 @@ const Order = () => {
                     <div>
                         <h1>posible boton mesa</h1>
                     </div>
-                    <div className="flex my-4">
-                        <button
-                            className="bg-[#B1B5A5] text-[#9E2D29] w-28 h-14 rounded-3xl mx-4 shadow-full"
-                            onClick={() => filterMenu("pasta")}
-                        >
+                    <div className={localStorage.role == "mesero" ? "flex my-4" : "invisible"}>
+                        <button className={pastas ? "button-type-on" : "button-type-off"} onClick={() => filterMenu("pasta")}>
                             Pastas
                         </button>
-                        <button
-                            className="bg-[#B1B5A5] text-[#9E2D29] w-28 h-14 rounded-3xl mx-4 shadow-full"
-                            onClick={() => filterMenu("pizza")}
-                        >
+                        <button className={pizzas ? "button-type-on" : "button-type-off"} onClick={() => filterMenu("pizza")}>
                             Pizzas
                         </button>
-                        <button
-                            className="bg-[#B1B5A5] text-[#9E2D29] w-28 h-14 rounded-3xl mx-4 shadow-full"
-                            onClick={() => filterMenu("bebidas")}
-                        >
-                            Bebestibles
+                        <button className={bebidas ? "button-type-on" : "button-type-off"} onClick={() => filterMenu("bebidas")}>
+                            Bebidas
                         </button>
                     </div>
                     <div className="flex justify-center w-11/12 h-4/6">
-                        <Menu menu={fMenu} />
+                        {localStorage.role == "mesero" ? <Menu menu={fMenu} /> : <ButtonKitchen />}
                     </div>
                     <div className="bg-[#B6CE55] flex my-4 h-16 w-5/6 items-end rounded-md">
-                        <h1>cliente</h1>
+                        <form onSubmit={e => { e.preventDefault(); setClient(e.target.client.value) }} className="flex">
+                            <h1 className="mb-4 ml-4">cliente</h1>
+                            <input type="text" name="client" placeholder="Nombre" autoComplete="off" className="mb-4 ml-4 bg-[#B6CE55]" />
+                            <button type="submit">Guardar</button>
+                        </form>
                     </div>
                 </div>
-
                 <div className="flex flex-col items-center">
                     <div className="bg-green w-96 h-5/6 flex rounded-md shadow-3xl flex-col ">
                         <CartOrder />
                     </div>
-                    <div className="flex my-4 h-16 items-end">
-                        <button className="bg-[#D9BA3F] text-green-dark w-28 h-14 rounded-3xl mx-4 shadow-full">
+                    <div className={localStorage.role == "mesero" ? "flex my-4 h-16 items-end" : "invisible"}>
+                        <button onClick={handleSendOrder} className="bg-[#D9BA3F] text-green-dark w-28 h-14 rounded-3xl mx-4 shadow-full">
                             Enviar
                         </button>
                         <button className="bg-[#E6553C] text-[#FFFFFF] w-28 h-14 rounded-3xl mx-4 shadow-full">
