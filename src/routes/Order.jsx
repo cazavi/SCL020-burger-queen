@@ -5,9 +5,15 @@ import CartOrder from "../components/CartOrder";
 import ButtonKitchen from "../components/ButtonKitchen";
 import { AppContext } from "../components/Provider";
 import axios from "axios";
+import {useNavigate, useLocation} from 'react-router-dom';
+
 
 
 const Order = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location.state.name);
+    
     const context = useContext(AppContext);
     const cartProduct = context.cart;
     const [fMenu, setFMenu] = useState([]);
@@ -74,7 +80,18 @@ const Order = () => {
             console.log(response);
             console.log(response.data.response._id);
         })
-        .catch((err) => console.log(err));;
+        .catch((err) => console.log(err.response.data));;
+    }
+    const handleGetOrder = () => {
+        let headers = {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+        axios
+        .get('https://apiburgerqueenv1.herokuapp.com/orders', { headers })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((err) => console.log(err.response.data));;
     }
 
     return (
@@ -83,7 +100,7 @@ const Order = () => {
             <div className="h-full pt-28 font-Comfortaa grid grid-cols-2">
                 <div className="flex flex-col items-center">
                     <div>
-                        <h1>posible boton mesa</h1>
+                        <h1>{location.state.name}</h1>
                     </div>
                     <div className={localStorage.role == "mesero" ? "flex my-4" : "invisible"}>
                         <button className={pastas ? "button-type-on" : "button-type-off"} onClick={() => filterMenu("pasta")}>
@@ -112,10 +129,10 @@ const Order = () => {
                         <CartOrder />
                     </div>
                     <div className={localStorage.role == "mesero" ? "flex my-4 h-16 items-end" : "invisible"}>
-                        <button onClick={handleSendOrder} className="bg-[#D9BA3F] text-green-dark w-28 h-14 rounded-3xl mx-4 shadow-full">
+                        <button onClick={handleGetOrder} className="bg-[#D9BA3F] text-green-dark w-28 h-14 rounded-3xl mx-4 shadow-full">
                             Enviar
                         </button>
-                        <button className="bg-[#E6553C] text-[#FFFFFF] w-28 h-14 rounded-3xl mx-4 shadow-full">
+                        <button onClick={() => navigate("/tables")} className="bg-[#E6553C] text-[#FFFFFF] w-28 h-14 rounded-3xl mx-4 shadow-full">
                             Cancelar
                         </button>
                     </div>
