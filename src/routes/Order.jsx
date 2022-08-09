@@ -82,17 +82,6 @@ const Order = () => {
         })
         .catch((err) => console.log(err.response.data));;
     }
-    const handleGetOrder = () => {
-        let headers = {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-        axios
-        .get('https://apiburgerqueenv1.herokuapp.com/orders', { headers })
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((err) => console.log(err.response.data));;
-    }
 
     return (
         <div className="w-full h-screen">
@@ -129,7 +118,7 @@ const Order = () => {
                         <CartOrder />
                     </div>
                     <div className={localStorage.role == "mesero" ? "flex my-4 h-16 items-end" : "invisible"}>
-                        <button onClick={handleGetOrder} className="bg-[#D9BA3F] text-green-dark w-28 h-14 rounded-3xl mx-4 shadow-full">
+                        <button onClick={handleSendOrder} className="bg-[#D9BA3F] text-green-dark w-28 h-14 rounded-3xl mx-4 shadow-full">
                             Enviar
                         </button>
                         <button onClick={() => navigate("/tables")} className="bg-[#E6553C] text-[#FFFFFF] w-28 h-14 rounded-3xl mx-4 shadow-full">
