@@ -1,6 +1,19 @@
 import Navbar from "../components/Navbar";
 
 const Preparing = () => {
+
+    const handleGetOrder = () => {
+        let headers = {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+        axios
+        .get('https://apiburgerqueenv1.herokuapp.com/orders', { headers })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((err) => console.log(err.response.data));;
+    }
+
     return (
         <div className="w-full h-screen">
             <Navbar />
