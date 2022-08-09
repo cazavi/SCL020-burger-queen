@@ -12,7 +12,6 @@ import {useNavigate, useLocation} from 'react-router-dom';
 const Order = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    console.log(location.state.name);
     
     const context = useContext(AppContext);
     const cartProduct = context.cart;
@@ -21,23 +20,23 @@ const Order = () => {
     const [pizzas, setPizzas] = useState(false)
     const [bebidas, setBebidas] = useState(false)
     const [client, setClient] = useState({})
-
-    const product = (cartProduct) => {
-        let products = [];
-        cartProduct.map(({ qty, product, price }) => {
-            const item = { qty, product: product, price: price }
-            products.push(item)
-        })
-        return products
-    }
-
-    const products = product(cartProduct)
-    const data = { client, products }
-    console.log(data)
+    const [table, setTable] = useState(location.state.name)
 
     useEffect(() => {
         filterMenu("pasta")
     }, [context.menu])
+
+    const filterMenu = (type) => {
+        const result = context.menu.filter(item => item.type === type);
+        setFMenu(result);
+        if (type == 'pizza') {
+            handlePizzas()
+        } else if (type == 'pasta') {
+            handlePastas()
+        } else if (type == 'bebidas') {
+            handleBebidas()
+        }
+    };
 
     const handlePizzas = () => {
         setPizzas(true)
@@ -55,17 +54,18 @@ const Order = () => {
         setBebidas(true)
     }
 
-    const filterMenu = (type) => {
-        const result = context.menu.filter(item => item.type === type);
-        setFMenu(result);
-        if (type == 'pizza') {
-            handlePizzas()
-        } else if (type == 'pasta') {
-            handlePastas()
-        } else if (type == 'bebidas') {
-            handleBebidas()
-        }
-    };
+    const product = (cartProduct) => {
+        let products = [];
+        cartProduct.map(({ qty, product, price }) => {
+            const item = { qty, product: product, price: price }
+            products.push(item)
+        })
+        return products
+    }
+
+    const products = product(cartProduct)
+    const data = { client, products, table }
+    console.log(data)
 
     const handleSendOrder = () => {
         let headers = {
@@ -97,16 +97,16 @@ const Order = () => {
     return (
         <div className="w-full h-screen">
             <Navbar />
-            <div className="h-full pt-28 font-Comfortaa grid grid-cols-2">
-                <div className="flex flex-col items-center">
+            <div className="h-full font-Comfortaa font-black grid grid-cols-2">
+                <div className="flex flex-col items-center pt-14">
                     <div>
-                        <h1>{location.state.name}</h1>
+                        <h1 className="text-4xl text-[#B6CE55] font-Comfortaa pb-6">{location.state.name}</h1>
                     </div>
                     <div className={localStorage.role == "mesero" ? "flex my-4" : "invisible"}>
-                        <button className={pastas ? "button-type-on" : "button-type-off"} onClick={() => filterMenu("pasta")}>
+                        <button onClick={() => filterMenu("pasta")} className={pastas ? "button-type-on" : "button-type-off"} >
                             Pastas
                         </button>
-                        <button className={pizzas ? "button-type-on" : "button-type-off"} onClick={() => filterMenu("pizza")}>
+                        <button onClick={() => filterMenu("pizza")} className={pizzas ? "button-type-on" : "button-type-off"} >
                             Pizzas
                         </button>
                         <button className={bebidas ? "button-type-on" : "button-type-off"} onClick={() => filterMenu("bebidas")}>
@@ -116,15 +116,15 @@ const Order = () => {
                     <div className="flex justify-center w-11/12 h-4/6">
                         {localStorage.role == "mesero" ? <Menu menu={fMenu} /> : <ButtonKitchen />}
                     </div>
-                    <div className="bg-[#B6CE55] flex my-4 h-16 w-5/6 items-end rounded-md">
-                        <form onSubmit={e => { e.preventDefault(); setClient(e.target.client.value) }} className="flex">
-                            <h1 className="mb-4 ml-4">cliente</h1>
-                            <input type="text" name="client" placeholder="Nombre" autoComplete="off" className="mb-4 ml-4 bg-[#B6CE55]" />
-                            <button type="submit">Guardar</button>
+                    <div className="flex my-4 h-16 w-4/6 items-end rounded-md justify-around">
+                        <form onSubmit={e => { e.preventDefault(); setClient(e.target.client.value) }} className="flex bg-[#B6CE55] h-20 items-center rounded-xl">
+                            <h1 className="mt-4 mb-4 ml-4 bg-[#B6CE55]">Cliente:</h1>
+                            <input type="text" name="client" placeholder="Nombre..." autoComplete="off" className="mt-4 mb-4 ml-4 bg-[#B9C48B] placeholder:text-green-dark" />
+                            <button type="submit" className="bg-[#D9BA3F] text-green-dark w-28 h-14 rounded-3xl mx-4 border-black">Guardar</button>
                         </form>
                     </div>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col pt-24 items-center">
                     <div className="bg-green w-96 h-5/6 flex rounded-md shadow-3xl flex-col ">
                         <CartOrder />
                     </div>

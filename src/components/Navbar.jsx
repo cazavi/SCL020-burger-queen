@@ -34,7 +34,7 @@ const Navbar = () => {
   const user = window.localStorage.email;
 
   return (
-  <div  className="bg-green-dark inline-block w-full h-28  m-0 p-0 fixed font-Comfortaa text-center">
+  <div  className=" inline-block w-full h-28  m-0 p-0 fixed font-Comfortaa text-center">
     <div onClick={handleNav} className=" flex justify-between pr-2 pt-3.5 h-28 w-full"> 
     <img src='./public/nonna-queen.svg' className="flex pl-2 pt-0 h-28 w-28"></img>
       {nav ? <CgCloseO className="fixed right-96"color="#D13C36"size={70} /> : <CgMenuRound color="#D13C36" size={70} />}
