@@ -15,7 +15,7 @@ function CartOrder({ menu }) {
         })
         return PriceTotal;
     }
-    const totalPruduct = () => {
+    const totalProduct = () => {
         return cartProduct.reduce((previous, current) => previous + current.qty, 0)
     }
 
@@ -34,7 +34,7 @@ function CartOrder({ menu }) {
             <hr />
             <div className="flex items-end justify-around mt-[auto] mb-2">
                 <p className="">Total:</p>
-                <p className="">{totalPruduct()}</p>
+                <p className="">{totalProduct()}</p>
                 <p className={localStorage.role == "mesero"? "flex":"invisible"}>${totalPrice()}</p>
             </div>
         </>

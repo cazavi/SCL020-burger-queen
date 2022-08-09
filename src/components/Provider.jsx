@@ -11,7 +11,6 @@ const Provider = (props) => {
             .then((response) => response.json())
             .then((data) => {
                 setMenu(data);
-                console.log(data);
             });
     }, []);
 
