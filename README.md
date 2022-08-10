@@ -30,3 +30,6 @@ Ver flujo [aquí](https://www.figma.com/file/zf6Iatfd72OyGpvaUfgDlk/NONNA-QUEEN?
 * Añadir menu.json
 * Crear componente de menu.
 * Generar interacción del menu con template order.
+* Dividir provider en un componente de carro de compra para reutilizar.
+* Conectar con api para crear usuarios y autenticar.
+* Agregar conexión con api para mandar y llevar pedido.

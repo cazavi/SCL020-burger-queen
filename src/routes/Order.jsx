@@ -82,17 +82,6 @@ const Order = () => {
         })
         .catch((err) => console.log(err.response.data));;
     }
-    const handleGetOrder = () => {
-        let headers = {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-        axios
-        .get('https://apiburgerqueenv1.herokuapp.com/orders', { headers })
-        .then((response) => {
-            console.log(response.data.result);
-        })
-        .catch((err) => console.log(err.response.data));;
-    }
 
     return (
         <div className="w-full h-screen">

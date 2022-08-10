@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Navbar from "../components/Navbar";
 
 const Preparing = () => {
+
     const { state } = useLocation();
     const [menu, setMenu] = useState([]);
     const [order, setOrder] = useState();
@@ -35,6 +36,19 @@ const Preparing = () => {
     };
     const totalProduct = () => {
         return order.reduce((previous, current) => previous + current.qty, 0)
+
+
+    const handleGetOrder = () => {
+        let headers = {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+        axios
+        .get('https://apiburgerqueenv1.herokuapp.com/orders', { headers })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((err) => console.log(err.response.data));;
+
     }
 
     return (
