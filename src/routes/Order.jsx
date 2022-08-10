@@ -11,7 +11,7 @@ import {useNavigate, useLocation} from 'react-router-dom';
 
 const Order = () => {
     const navigate = useNavigate();
-    const location = useLocation();
+    const { state } = useLocation();
     
     const context = useContext(AppContext);
     const cartProduct = context.cart;
@@ -20,7 +20,7 @@ const Order = () => {
     const [pizzas, setPizzas] = useState(false)
     const [bebidas, setBebidas] = useState(false)
     const [client, setClient] = useState({})
-    const [table, setTable] = useState(location.state.name)
+    const [table, setTable] = useState(state)
 
     useEffect(() => {
         filterMenu("pasta")
@@ -89,7 +89,7 @@ const Order = () => {
             <div className="h-full font-Comfortaa font-black grid grid-cols-2">
                 <div className="flex flex-col items-center pt-14">
                     <div>
-                        <h1 className="text-4xl text-[#B6CE55] font-Comfortaa pb-6">{location.state.name}</h1>
+                        <h1 className="text-4xl text-[#B6CE55] font-Comfortaa pb-6">{state}</h1>
                     </div>
                     <div className={localStorage.role == "mesero" ? "flex my-4" : "invisible"}>
                         <button onClick={() => filterMenu("pasta")} className={pastas ? "button-type-on" : "button-type-off"} >

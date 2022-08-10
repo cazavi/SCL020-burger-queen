@@ -35,7 +35,7 @@ function CartOrder({ menu }) {
             <div className="flex items-end justify-around mt-[auto] mb-2">
                 <p className="">Total:</p>
                 <p className="">{totalProduct()}</p>
-                <p className={localStorage.role == "mesero"? "flex":"invisible"}>${totalPrice()}</p>
+                <p className="flex">${totalPrice()}</p>
             </div>
         </>
     )
