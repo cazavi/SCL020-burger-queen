@@ -3,14 +3,18 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
+
 	const navigate = useNavigate();
+
 	const [user, setUser] = useState({
 		email: "",
 		password: "",
 	});
+
 	const handleChange = ({ target: { name, value } }) => {
 		setUser({ ...user, [name]: value });
 	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		axios
@@ -29,9 +33,9 @@ const Login = () => {
 					response = navigate("/tables");
 				}
 			})
-
 			.catch((err) => console.log(err));
 	};
+	
 	return (
 		<div className="bg-[url('./IMGS/BACKGROUND.jpg')] bg-cover w-full h-[820px] flex items-center flex-col font-Comfortaa">
 			<picture className="my-16">

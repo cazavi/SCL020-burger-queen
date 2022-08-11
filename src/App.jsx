@@ -1,4 +1,4 @@
-import { Routes, Route, Link} from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import Login from "./routes/Login";
 import Options from "./routes/Options";
 import Order from "./routes/Order";
@@ -15,7 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/options" element={<ProtectedRoutes> <Options /> </ProtectedRoutes> } />
-        <Route path="/order" element={<ProtectedRoutes> <Provider> <Navbar /> <Order /> </Provider> </ProtectedRoutes> } />
+        <Route path="/order" element={<ProtectedRoutes> <Navbar /> <Provider> <Order /> </Provider> </ProtectedRoutes> } />
         <Route path="/preparing" element={<ProtectedRoutes> <Preparing /> </ProtectedRoutes> } />
         <Route path="/tables" element={<ProtectedRoutes> <Tables /> </ProtectedRoutes> } />
         <Route path="/iconography" element={<ProtectedRoutes> <Iconography /> </ProtectedRoutes> } />

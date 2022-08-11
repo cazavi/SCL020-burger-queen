@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "./Provider";
 import { RiDeleteBin2Fill } from "react-icons/ri"
 
-function CartOrder({ menu }) {
+function CartOrder() {
     const context = useContext(AppContext);
     const cartProduct = context.cart;
     const deleteButton = context.deleteItem;
