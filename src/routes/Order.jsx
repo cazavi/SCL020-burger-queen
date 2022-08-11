@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext} from "react";
 import Navbar from "../components/Navbar";
 import Menu from "../components/Menu";
 import CartOrder from "../components/CartOrder";
@@ -64,6 +64,7 @@ const Order = () => {
     }
 
     const products = product(cartProduct)
+
     const data = { client, products, table }
     console.log(data)
 
@@ -91,7 +92,7 @@ const Order = () => {
                     <div>
                         <h1 className="text-4xl text-[#B6CE55] font-Comfortaa pb-6">{state}</h1>
                     </div>
-                    <div className={localStorage.role == "mesero" ? "flex my-4" : "invisible"}>
+                    <div className="flex my-4">
                         <button onClick={() => filterMenu("pasta")} className={pastas ? "button-type-on" : "button-type-off"} >
                             Pastas
                         </button>
@@ -103,7 +104,7 @@ const Order = () => {
                         </button>
                     </div>
                     <div className="flex justify-center w-11/12 h-4/6">
-                        {localStorage.role == "mesero" ? <Menu menu={fMenu} /> : <ButtonKitchen />}
+                        <Menu menu={fMenu} />
                     </div>
                     <div className="flex my-4 h-16 w-4/6 items-end rounded-md justify-around">
                         <form onSubmit={e => { e.preventDefault(); setClient(e.target.client.value) }} className="flex bg-[#B6CE55] h-20 items-center rounded-xl">
@@ -117,7 +118,7 @@ const Order = () => {
                     <div className="bg-green w-96 h-5/6 flex rounded-md shadow-3xl flex-col ">
                         <CartOrder />
                     </div>
-                    <div className={localStorage.role == "mesero" ? "flex my-4 h-16 items-end" : "invisible"}>
+                    <div className="flex my-4 h-16 items-end">
                         <button onClick={handleSendOrder} className="bg-[#D9BA3F] text-green-dark w-28 h-14 rounded-3xl mx-4 shadow-full">
                             Enviar
                         </button>

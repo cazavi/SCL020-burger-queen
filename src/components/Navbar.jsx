@@ -15,11 +15,11 @@ const Navbar = () => {
     localStorage.removeItem("email");
     navigate('/');
   };
+
   useEffect(() => {
     let headers = {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
-
     axios
       .get('https://apiburgerqueenv1.herokuapp.com/', { headers })
       .then((response)=> {
@@ -28,7 +28,6 @@ const Navbar = () => {
       .catch((error)=> {
         console.log(error)
       })
-
   }, [])
   
   const user = window.localStorage.email;
@@ -42,8 +41,7 @@ const Navbar = () => {
 			<div className={nav ? 'px-4 mx-auto p-5 fixed right-0 top-0 w-[30%] h-full border-r border-r-green-dark bg-[#B6CE55] ease-in-out duration-300' : 'fixed right-[-100%]'}>
         <ul className="pt-20 uppercase">
         <div className="py-3 px-4">
-          <span className="block text-sm font-bold">Admin</span>
-          <span className="block text-sm font-bold text-gray-500 truncate ">{window.localStorage.email}</span>
+          <span className="block text-sm font-bold text-gray-500 truncate ">{user}</span>
         </div>
           <li>
             <NavLink to="/kitchen" className='block rounded m-2.5 p-5 shadow-xl border-b bg-[#F0CE46] border-r-green-dark active:bg-[#9E2D29]'>Cocina</NavLink>

@@ -1,26 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import axios from "axios";
 
 const Options = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    let headers = {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
-
-    axios
-      .get('https://apiburgerqueenv1.herokuapp.com/', { headers })
-      .then((response)=> {
-        console.log(response.data)
-      })
-      .catch((error)=> {
-        console.log(error)
-      })
-
-  }, [])
-
 
 return(
     <div className="w-screen h-screen flex content-center items-center flex-col">
