@@ -11,9 +11,7 @@ const Iconography = () => {
 						<button className="order-made"> PEDIDO HECHO </button> 
 						<button className="bg-[#F0983A] w-64 h-36 rounded-3xl shadow-xl"> EN PREPARACIÓN </button> 
 						<button className="bg-[#E6553C] w-64 h-36 rounded-3xl shadow-xl"> PEDIDO CANCELADO </button> 
-						<button className="order-ready"> PEDIDO LISTO </button> 
-						<button className="border-[#8FEB95] text-[#8FEB95] w-64 h-36 rounded-3xl shadow-xl border-8 border-dashed"> PEDIDO ENTREGADO </button> 
-						<button className="border-[#D9BA3F] text-[#D9BA3F] w-64 h-36 rounded-3xl shadow-xl border-8 border-dashed"> SIN PEDIDO </button> 
+						<button className="order-ready"> PEDIDO LISTO </button>
 					</div>
         </div>
 		</div>
