@@ -47,17 +47,17 @@ const Preparing = () => {
         .catch((err) => console.log(err.response));;
     }
 
-    const handleDeleteOrder = () => {
-        let headers = {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-        axios
-        .delete('https://apiburgerqueenv1.herokuapp.com/orders/62f41f59090b35d370a94b18', { headers })
-        .then((response) => {
-            console.log(response)
-        })
-        .catch((err) => console.log(err.response));;
-    }
+    // const handleDeleteOrder = () => {
+    //     let headers = {
+    //         Authorization: `Bearer ${localStorage.getItem('token')}`
+    //     }
+    //     axios
+    //     .delete('https://apiburgerqueenv1.herokuapp.com/orders/62f41a57090b35d370a949be', { headers })
+    //     .then((response) => {
+    //         console.log(response)
+    //     })
+    //     .catch((err) => console.log(err.response));;
+    // }
 
     return (
         <div className="w-full h-screen">
@@ -86,7 +86,7 @@ const Preparing = () => {
                 </div>
                 {chef ? <ButtonKitchen/> :
                     <div className="flex flex-col items-center justify-evenly">
-                        <button onClick={(e)=>handleDeleteOrder()} className="bg-[#E6553C] text-green-dark w-72 h-28 rounded-3xl shadow-full">Cancelado</button>
+                        <button className="bg-[#E6553C] text-green-dark w-72 h-28 rounded-3xl shadow-full">Cancelado</button>
                         <button className="bg-[#E0E2D4] text-green-dark w-72 h-28 rounded-3xl shadow-full">Listo</button>
                     </div>
                 }
