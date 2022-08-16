@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { createContext, useState, useEffect } from "react";
 
 export const AppContext = createContext();
@@ -7,10 +8,11 @@ const Provider = (props) => {
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
-        fetch("src/menu.json")
-            .then((response) => response.json())
-            .then((data) => {
-                setMenu(data);
+        axios
+            .get('src/menu.json')
+            .then((response) => console.log(response))
+            .then((response) => {
+                setMenu(response.data);
             });
     }, []);
 

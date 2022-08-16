@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useState, useEffect } from "react";
 import axios from "axios";
+// import {Timer} from "../components/Timer";
 
 const Tables = () => {
 	const [order, setOrder] = useState([]);
@@ -16,15 +17,19 @@ const Tables = () => {
 		let headers = {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}
-		fetch('https://apiburgerqueenv1.herokuapp.com/orders', { headers })
-			.then((response) => response.json())
-			.then((data) => {
-				setOrder(data.result);
+		axios
+		.get('https://apiburgerqueenv1.herokuapp.com/orders', { headers })
+			.then((response) => {
+				console.log(response.data)
+				setOrder(response.data.result);
+			})
+			.catch((error) => {
+				console.log(error);
 			});
 	}
 	setInterval(() => {
 		getOrder()
-	}, 50000)
+	}, 300000)
 
 	console.log(order)
 	const orderTable = (table) => order.filter(item => item.table === table && item.status !== "delivered")
@@ -58,7 +63,9 @@ const Tables = () => {
 					<button onClick={e => mesero ? 
 						(orderTable('Mesa 01').length !=0 ? navigate("/preparing", { state: "Mesa 01" }): navigate("/order", { state: "Mesa 01" })) 
 						: navigate("/preparing", { state: "Mesa 01" })} 
-						className={`${status("Mesa 01")}`}> Mesa 01 </button>
+						className={`${status("Mesa 01")}`}> Mesa 01 
+						{/* <Timer /> */}
+						</button>
 
 					<button onClick={e => mesero ?
 						(orderTable('Mesa 02').length !=0 ? navigate("/preparing", { state: "Mesa 02" }): navigate("/order", { state: "Mesa 02" })) 
