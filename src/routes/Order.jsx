@@ -2,10 +2,10 @@ import React, { useState, useEffect, useContext} from "react";
 import Navbar from "../components/Navbar";
 import Menu from "../components/Menu";
 import CartOrder from "../components/CartOrder";
-import ButtonKitchen from "../components/ButtonKitchen";
 import { AppContext } from "../components/Provider";
 import axios from "axios";
 import {useNavigate, useLocation} from 'react-router-dom';
+// import {handleStart} from "../components/Timer";
 
 
 
@@ -120,6 +120,7 @@ const Order = () => {
                     </div>
                     <div className="flex my-4 h-16 items-end">
                         <button onClick={handleSendOrder} className="bg-[#D9BA3F] text-green-dark w-28 h-14 rounded-3xl mx-4 shadow-full">
+                        {/* onClick={()=>{handleSendOrder(); handleStart()}} */}
                             Enviar
                         </button>
                         <button onClick={() => navigate("/tables")} className="bg-[#E6553C] text-[#FFFFFF] w-28 h-14 rounded-3xl mx-4 shadow-full">

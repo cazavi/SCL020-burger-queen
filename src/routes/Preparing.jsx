@@ -3,9 +3,9 @@ import { useLocation } from 'react-router-dom';
 import Navbar from "../components/Navbar";
 import ButtonKitchen from "../components/ButtonKitchen";
 import axios from "axios";
+// import  {Timer,handleReset}  from "../components/Timer";
 
 const Preparing = () => {
-
     const { state } = useLocation();
     const [menu, setMenu] = useState([]);
     const [order, setOrder] = useState();
@@ -47,17 +47,17 @@ const Preparing = () => {
         .catch((err) => console.log(err.response));;
     }
 
-    // const handleDeleteOrder = () => {
-    //     let headers = {
-    //         Authorization: `Bearer ${localStorage.getItem('token')}`
-    //     }
-    //     axios
-    //     .delete('https://apiburgerqueenv1.herokuapp.com/orders/62f41a57090b35d370a949be', { headers })
-    //     .then((response) => {
-    //         console.log(response)
-    //     })
-    //     .catch((err) => console.log(err.response));;
-    // }
+    const handleDeleteOrder = () => {
+        let headers = {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+        axios
+        .delete('https://apiburgerqueenv1.herokuapp.com/orders/62ebd9a6f25e9fcc13495532', { headers })
+        .then((response) => {
+            console.log(response)
+        })
+        .catch((err) => console.log(err.response));;
+    }
 
     return (
         <div className="w-full h-screen">
@@ -72,6 +72,7 @@ const Preparing = () => {
                                     <p className="w-10 ml-20 flex ">{item.qty}</p>
                                 </div>
                             )) : <h2>'CARGANDO ORDEN'</h2>}
+                            {/* <Timer/> */}
                             
                         </div>
                         <hr />
@@ -86,8 +87,9 @@ const Preparing = () => {
                 </div>
                 {chef ? <ButtonKitchen/> :
                     <div className="flex flex-col items-center justify-evenly">
-                        <button className="bg-[#E6553C] text-green-dark w-72 h-28 rounded-3xl shadow-full">Cancelado</button>
-                        <button className="bg-[#E0E2D4] text-green-dark w-72 h-28 rounded-3xl shadow-full">Listo</button>
+                        <button onClick={handleDeleteOrder}className="bg-[#E6553C] text-green-dark w-72 h-28 rounded-3xl shadow-full">Cancelado</button>
+                        <button className="bg-[#E0E2D4] text-green-dark w-72 h-28 rounded-3xl shadow-full">Entregado</button>
+                        {/* onClick={handleReset()} */}
                     </div>
                 }
             </div>
